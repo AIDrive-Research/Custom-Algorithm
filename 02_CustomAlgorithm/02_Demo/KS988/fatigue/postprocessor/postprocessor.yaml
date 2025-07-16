@@ -1,0 +1,14 @@
+name: fatigue
+ch_name: 疲劳检测
+desc: 适用于驾驶室疲劳检测;画面可分辨人员及眼部特征;人员及眼部目标不小于画面大小5%;识别距离小于2m最佳（200万@6mm）
+group_name: 人员管理
+model:
+  zql_face_landmark:
+    label:
+      class2label:
+        0: face
+      label_map:
+        face: 正常
+alert_label: [ 疲劳 ]
+process_time: 10
+version: ks988-v3.0

@@ -1,0 +1,6 @@
+zql_feature:
+  type: zql_feature
+  args:
+    img_size: 224
+  infer_time: 15
+  

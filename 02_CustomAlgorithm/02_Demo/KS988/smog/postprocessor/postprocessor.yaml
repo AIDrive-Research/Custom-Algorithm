@@ -1,0 +1,22 @@
+name: smog
+ch_name: 烟雾检测
+desc: 适用于园区、仓库、商场场景下烟雾检测;支持大面积的白色或黑色浓烟识别;画面清晰，可辨别烟雾特征;烟雾目标不小于画面大小10%;识别距离小于20m最佳（200万@6mm）;白云、团雾等类烟雾目标可能产生误报
+group_name: 险情防控
+model:
+  zql_smog:
+    label:
+      class2label:
+        0: smog
+      label_map:
+        smog: 烟雾
+      label2color:
+        烟雾: [ 0, 0, 255 ]
+  zql_smog_classify:
+    inactive: true
+    label:
+      class2label:
+        0: smog 
+        1: normal
+alert_label: [ ]
+process_time: 5
+version: ks988-v8.0

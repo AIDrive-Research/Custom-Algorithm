@@ -1,0 +1,25 @@
+name: fall_down
+ch_name: 跌倒检测
+desc: 适用于校园、医院、工厂场景下人员跌倒检测;画面清晰，可辨别人体，支持完全躺地跌倒检测;人员目标不小于画面大小5%;识别距离小于15m最佳（200万@6mm）
+group_name: 人员管理
+model:
+  zql_fall_down:
+    label:
+      class2label:
+        0: normal
+        1: fall_down
+      label_map:
+        normal: 正常
+        fall_down: 跌倒
+      label2color: 
+        正常: [ 0, 255, 0]
+        跌倒: [ 0, 0, 255]
+  zql_fall_down_classify:
+    inactive: true
+    label:
+      class2label:
+        0: fall_down 
+        1: normal
+alert_label: [ 跌倒 ]
+process_time: 5
+version: ks988-v8.0

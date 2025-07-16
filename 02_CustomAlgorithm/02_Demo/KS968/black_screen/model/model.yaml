@@ -1,0 +1,5 @@
+zql_black_screen:
+  type: zql_pass
+  args: null
+  infer_time: 15
+  

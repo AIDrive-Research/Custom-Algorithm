@@ -1,0 +1,23 @@
+name: shoes
+ch_name: 未穿防护鞋检测
+desc: 适用于工地、工厂未佩戴防护鞋检测;需配置PPE底库并载入底库;底库需具备不同距离、姿态、光线多样性;画面可分分辨人员、鞋子特征;防护鞋不小于画面大小5%;识别距离小于10m最佳（200万@6mm）
+group_name: 人员管理
+model:
+  zql_ppe:
+    inactive: true
+    label:
+      class2label:
+        0: feature
+      label2map:
+        feature: 特征
+  zql_segment:
+    label:
+      class2label:
+        0: person      
+  zql_pose:
+    label:
+      class2label:
+        0: person
+alert_label: [ ]
+process_time: 10
+version: ks968-v6.0

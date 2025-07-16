@@ -1,0 +1,9 @@
+zql_face:
+  type: zql_face
+  args:
+    max_num: 5
+    conf_thres: 0.5
+    img_size: 640
+    nms_thres: 0.4
+  infer_time: 240
+  

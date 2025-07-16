@@ -1,0 +1,19 @@
+name: smoke
+ch_name: 抽烟检测
+desc: 适用于加油站、工厂、办公场所抽烟识别;画面清晰，可辨别人体、头部以及烟卷特征;香烟目标不小于画面大小5%;识别距离小于10m最佳（200万@6mm）;手持白色笔杆等情况易造成误报
+group_name: 人员管理
+model:
+  zql_smoke:
+    inactive: true
+    label:
+      class2label:
+        0: smoke
+        1: head
+        2: hand
+  zql_person:
+    label:
+      class2label:
+        0: person
+alert_label: [ ]
+process_time: 20
+version: ks968-v9.0

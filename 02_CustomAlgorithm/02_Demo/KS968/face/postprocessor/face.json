@@ -1,0 +1,120 @@
+{
+    "basicParams": {
+        "alert_window": {
+            "type": "interval_threshold_window",
+            "interval": 1,
+            "length": 1,
+            "threshold": 1
+        },
+        "bbox": {
+            "polygons": [],
+            "lines": []
+        },
+        "plan": {
+            "1": [[0, 86399]],
+            "2": [[0, 86399]],
+            "3": [[0, 86399]],
+            "4": [[0, 86399]],
+            "5": [[0, 86399]],
+            "6": [[0, 86399]],
+            "7": [[0, 86399]]
+        },
+        "hazard_level": "",
+        "alg_type": "match_face",
+        "model_args": {
+            "zql_face": {
+                "conf_thres": 0.5
+            }
+        },
+        "reserved_args": {
+            "ch_name": "人脸识别",
+            "ch_name_tooltip": "一张图片最多支持识别5个人脸",
+            "sound_text": "人脸识别告警",
+            "threshold": 0,
+            "similarity": 0.65,
+            "group_id": "",
+            "group_type": "blacklist"
+        }
+    },
+    "renderParams": {
+        "alert_window": {
+            "interval": {
+                "label": "告警间隔",
+                "unit": "秒",
+                "tooltip": "例：设置为5秒，则5秒内连续检测到多次只告警1次",
+                "type": "number",
+                "range": {
+                    "min": 0,
+                    "step": 1,
+                    "max": 99999999
+                }
+            }
+        },
+        "reserved_args": {
+            "threshold": {
+                "hide": true,
+                "label": "质量",
+                "unit": "",
+                "tooltip": "人脸质量阈值",
+                "type": "number",
+                "range": {
+                    "min": 0,
+                    "step": 0.01,
+                    "max": 1
+                }
+            },
+            "similarity": {
+                "hide": true,
+                "label": "相似度",
+                "unit": "",
+                "tooltip": "",
+                "type": "number",
+                "range": {
+                    "min": 0,
+                    "step": 0.01,
+                    "max": 1
+                }
+            },
+            "group_type": {
+                "label": "分组类型",
+                "unit": "",
+                "tooltip": "白名单：与底库相似不告警，反之告警；黑名单：与底库相似告警，反之不告警",
+                "type": "select",
+                "options": [{
+                        "label": "白名单",
+                        "value": "whitelist"
+                    }, {
+                        "label": "黑名单",
+                        "value": "blacklist"
+                    }
+                ]
+            },
+            "sound_text": {
+                "label": "浏览器语音播报",
+                "type": "text",
+                "maxLength": 20
+            }
+        },
+        "bbox": {
+            "polygons": {
+                "exits": "optional",
+                "max": -1,
+                "edge": -1
+            }
+        },
+        "model_args": {
+            "zql_face": {
+                "conf_thres": {
+                    "label": "人脸检测置信度",
+                    "unit": "",
+                    "type": "number",
+                    "range": {
+                        "min": 0,
+                        "step": 0.01,
+                        "max": 1
+                    }
+                }
+            }
+        }
+    }
+}

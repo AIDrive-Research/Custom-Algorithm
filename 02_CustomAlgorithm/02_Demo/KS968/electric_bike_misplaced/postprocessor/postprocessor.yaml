@@ -1,0 +1,16 @@
+name: electric_bike_misplaced
+ch_name: 电瓶车违停
+desc: 适用于园区、街道场景电瓶车违停识别;支持两轮电瓶车识别;需标记违停区域，并可设置多个违停区域;画面清晰，可辨别电瓶车;电瓶车目标不小于画面大小5%;识别距离小于30m最佳（200万@6mm）;敏感度值越小，检测越灵敏
+group_name: 车辆管理
+model:
+  zql_common:
+    label:
+      class2label:
+        1: bicycle
+        3: motorcycle
+      label_map:
+        bicycle: 自行车
+        motorcycle: 电瓶车
+alert_label: [ ]        
+process_time: 20
+version: ks968-v7.0

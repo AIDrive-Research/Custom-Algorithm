@@ -1,0 +1,10 @@
+zql_face:
+  type: zql_face
+  args:
+    max_num: 5
+    conf_thres: 0.5
+    img_size: 640
+    nms_thres: 0.4
+  # 基础耗时225，每增加一个人脸耗时增加35
+  infer_time: 400
+  

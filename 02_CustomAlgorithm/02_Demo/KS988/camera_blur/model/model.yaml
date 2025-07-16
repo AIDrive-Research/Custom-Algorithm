@@ -1,0 +1,4 @@
+zql_camera_blur:
+  type: zql_pass
+  args: null
+  infer_time: 5

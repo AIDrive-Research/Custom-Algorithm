@@ -1,0 +1,9 @@
+name: camera_blur
+ch_name: 摄像头模糊检测
+desc: 适用于监控场景摄像头画面模糊检测;支持由于相机振动、对焦不足、镜头污损造成的画面模糊;灵敏度值越大，检测越灵敏
+group_name: 行业定制
+model:
+  zql_camera_blur: null
+alert_label: [ ]
+process_time: 20
+version: ks968-v3.0

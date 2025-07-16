@@ -1,0 +1,18 @@
+name: car_misplaced
+ch_name: 车辆违停
+desc: 适用于园区、街道场景车辆违停识别;支持轿车、卡车、公交车识别;需标记违停区域，并可设置多个违停区域;画面清晰，可辨别车辆;车辆目标不小于画面大小5%;识别距离小于30m最佳（200万@6mm）;敏感度值越小，检测越灵敏
+group_name: 车辆管理
+model:
+  zql_common:
+    label:
+      class2label:
+        2: car
+        7: truck
+        5: bus
+      label_map:
+        car: 小轿车
+        truck: 货车
+        bus: 公交车
+alert_label: [ ]
+process_time: 10
+version: ks988-v7.0

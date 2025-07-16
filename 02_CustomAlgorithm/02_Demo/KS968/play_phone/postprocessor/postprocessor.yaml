@@ -1,0 +1,19 @@
+name: play_phone
+ch_name: 使用手机检测
+desc: 适用于加油站、化工厂、违禁区域使用手机检测;画面清晰，可辨别人体、手部以及手机特征;手机目标不小于画面大小5%;识别距离小于10m最佳（200万@6mm）
+group_name: 人员管理
+model:
+  zql_play_phone:
+    inactive: true
+    label:
+      class2label:
+        0: head
+        1: hand
+        2: phone
+  zql_person:
+    label:
+      class2label:
+        0: person
+alert_label: [ ]
+process_time: 20
+version: ks968-v9.0

@@ -1,0 +1,5 @@
+zql_camera_occlusion:
+  type: zql_pass
+  args: null
+  infer_time: 15
+  

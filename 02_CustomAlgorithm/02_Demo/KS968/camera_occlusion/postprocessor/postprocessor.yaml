@@ -1,0 +1,9 @@
+name: camera_occlusion
+ch_name: 摄像头遮挡检测
+desc: 适用于监控场景摄像头画面遮挡检测;支持镜头由于异物遮挡造成的异常检测;灵敏度值越大，检测越灵敏
+group_name: 行业定制
+model:
+  zql_camera_occlusion: null
+alert_label: [ ]
+process_time: 20
+version: ks968-v3.0

@@ -1,0 +1,9 @@
+zql_lpr:
+  type: zql_lpr
+  args:
+    conf_thres: 0.5
+    img_size: 640
+    nms_thres: 0.5
+  infer_time: 100
+  
+

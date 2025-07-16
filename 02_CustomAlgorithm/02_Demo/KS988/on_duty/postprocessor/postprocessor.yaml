@@ -1,0 +1,16 @@
+name: on_duty
+ch_name: 值岗检测
+desc: 适用于校园、工厂、工地场景人员值岗检测;画面清晰，可辨别人员特征;可设置多边形检测区域;人员目标不小于画面大小5%;识别距离小于20m最佳（200万@6mm）
+group_name: 人员管理
+model:
+  zql_person:
+    label:
+      class2label:
+        0: person
+      label_map:
+        person: 人
+      label2color:
+        人: [ 0, 255, 0 ]
+alert_label: [ ]
+process_time: 5
+version: ks988-v2.0

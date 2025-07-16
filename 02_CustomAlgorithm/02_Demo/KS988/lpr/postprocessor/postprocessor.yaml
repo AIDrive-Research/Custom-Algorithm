@@ -1,0 +1,12 @@
+name: lpr
+ch_name: 车牌识别
+desc: 适用于园区、停车场近距离场景车牌识别;支持单层蓝牌、黄牌、绿牌车牌号识别;画面可分辨车牌特征;车牌目标不小于画面大小5%;识别距离小于10m最佳（200万@6mm）
+group_name: 车辆管理
+model:
+  zql_lpr:
+    label:
+      class2label:
+        0: lp
+alert_label: [ ]
+process_time: 5
+version: ks988-v4.0

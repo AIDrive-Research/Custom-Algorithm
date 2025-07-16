@@ -1,0 +1,13 @@
+name: channel_obstruction
+ch_name: 消防通道占用检测
+desc: 适用于工地、工厂消防通道占用检测;需配置开放底库并载入底库;底库需具备光线多样性;识别距离小于20m最佳（200万@6mm）
+group_name: 行业定制
+model:
+  zql_feature:
+    inactive: true
+    label:
+      class2label:
+        0: feature
+alert_label: []
+process_time: 10
+version: ks968-v3.0

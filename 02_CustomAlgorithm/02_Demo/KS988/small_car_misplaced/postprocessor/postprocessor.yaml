@@ -1,0 +1,14 @@
+name: small_car_misplaced
+ch_name: 小汽车违停
+desc: 适用于园区、街道场景小汽车违停识别;支持小汽车识别;需标记违停区域，并可设置多个违停区域;画面清晰，可辨别小汽车;小汽车目标不小于画面大小5%;识别距离小于30m最佳（200万@6mm）;敏感度值越小，检测越灵敏
+group_name: 车辆管理
+model:
+  zql_common:
+    label:
+      class2label:
+        2: car
+      label_map:
+        car: 小汽车
+alert_label: [ ]
+process_time: 10
+version: ks988-v2.0

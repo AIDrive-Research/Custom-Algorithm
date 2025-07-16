@@ -1,0 +1,16 @@
+name: person_departure
+ch_name: 离岗检测
+desc: 需标记岗位区域;岗位区域为多边形，可标记多个区域;可设置人员密度（默认0），小于等于人员密度产生告警;可设置离岗持续时间（默认300秒），超出离岗时间产生告警;画面清晰，可辨别人员特征;人员目标不小于画面大小5%;识别距离小于15m最佳（200万@6mm）;人体检测框中心点（默认）是否离位，并持续特定时间（判断点可选择人体中心点或人体双脚中心点）
+group_name: 人员管理
+model:
+  zql_person:
+    label:
+      class2label:
+        0: person
+      label_map:
+        person: 人
+      label2color:
+        人: [ 0, 255, 0 ]
+alert_label: [ ]
+process_time: 10
+version: ks968-v6.0

@@ -1,0 +1,9 @@
+name: face
+ch_name: 人脸识别
+desc: 适用于仓库、园区人员人脸识别;支持未佩戴口罩人脸识别;画面清晰，可辨别人脸特征;人脸目标不小于画面大小5%;可识别人脸角度低头抬头≤30°，侧脸≤30°;识别距离小于10m最佳（200万@6mm）
+group_name: 人员管理
+model:
+  zql_face: null
+alert_label: [ ]
+process_time: 10
+version: ks988-v8.0

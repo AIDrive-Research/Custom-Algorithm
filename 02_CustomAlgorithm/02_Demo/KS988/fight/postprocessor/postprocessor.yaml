@@ -1,0 +1,25 @@
+name: fight
+ch_name: 打架检测
+desc: 适用于打架检测;画面需可分辨人员特征;人员目标不小于画面大小5%;识别距离小于15m最佳（200万@6mm）
+group_name: 人员管理
+model:
+  zql_fight:
+    label:
+      class2label:
+        0: fight
+        1: normal
+      label_map:
+        normal: 正常
+        fight: 打架
+      label2color: 
+        正常: [ 0, 255, 0]
+        打架: [ 0, 0, 255]
+  zql_fight_classify:
+    inactive: true
+    label:
+      class2label:
+        0: fight
+        1: normal
+alert_label: [ 打架 ]
+process_time: 5
+version: ks988-v4.0

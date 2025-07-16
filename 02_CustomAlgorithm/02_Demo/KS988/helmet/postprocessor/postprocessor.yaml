@@ -1,0 +1,29 @@
+name: helmet
+ch_name: 未佩戴安全帽检测
+desc: 适用于工地、工厂场景下未佩戴安全帽检测;支持红色、黄色、蓝色、白色安全帽检测;画面需可分辨头部及安全帽特征;人员头部及安全帽目标不小于画面大小5%;识别距离小于15m最佳（200万@6mm）
+group_name: 人员管理
+model:
+  zql_helmet_classify:
+    inactive: true
+    label:
+      class2label:
+        0: head 
+        1: helmet
+        2: other
+  zql_helmet:
+    label:
+      class2label:
+        0: head
+        1: helmet
+      label_map:
+        head: 未佩戴安全帽
+        helmet: 佩戴安全帽
+  zql_person:
+    label:
+      class2label:
+        0: person
+      label_map:
+        person: 人
+alert_label: [ 未佩戴安全帽 ]
+process_time: 10
+version: ks988-v8.0

@@ -1,0 +1,9 @@
+name: motion
+ch_name: 移动侦测
+desc: 适用于银行、仓库场景下运动目标检测;识别距离小于15m最佳（200万@6mm）;灵敏度值越小，检测越灵敏
+group_name: 行业定制
+model:
+  zql_motion: null
+alert_label: [ ]
+process_time: 5
+version: ks988-v8.0

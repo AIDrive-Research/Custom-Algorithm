@@ -1,0 +1,9 @@
+name: ocr
+ch_name: 光学字符识别
+desc: 适用于字母、数字、中文、英文字符识别;字符清晰可辨;可标记字符检测区域;字符目标不小于画面大小5%
+group_name: 行业定制
+model:
+  zql_ocr: null
+alert_label: [ ]
+process_time: 10
+version: ks988-v5.0

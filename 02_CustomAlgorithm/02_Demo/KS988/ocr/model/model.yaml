@@ -1,0 +1,8 @@
+zql_ocr:
+  type: zql_ppocr
+  args:
+    max_num: 5
+    img_size: 640
+    conf_thres: 0.25  
+  infer_time: 120
+  

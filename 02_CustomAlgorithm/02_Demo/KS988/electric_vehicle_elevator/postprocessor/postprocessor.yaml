@@ -1,0 +1,22 @@
+name: electric_vehicle_elevator
+ch_name: 电瓶车进电梯检测
+desc: 适用于小区等场景电瓶车闯入电梯检测;电瓶车清晰可见;可标记多个检测区域;电瓶车区域目标不小于画面大小5%;识别距离小于10m最佳（200万@6mm）
+group_name: 车辆管理
+model:
+  zql_electric_vehicle_elevator:
+    label:
+      class2label:
+        0: electric_vehicle
+        1: person
+        2: bicycle
+      label_map:
+        electric_vehicle: 电瓶车
+        person: 人
+        bicycle: 自行车
+      label2color:
+        电瓶车: [0, 255, 0]
+        人: [0, 255, 0]
+        自行车: [0, 255, 0]
+alert_label: [ 电瓶车 ]
+process_time: 5
+version: ks988-v6.0

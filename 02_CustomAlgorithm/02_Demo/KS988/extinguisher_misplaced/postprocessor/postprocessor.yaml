@@ -1,0 +1,16 @@
+name: extinguisher_misplaced
+ch_name: 灭火器离位检测
+desc: 适用于加油站场景灭火器离位检测;支持红色灭火器识别;画面清晰，可辨别灭火器特征;灭火器目标不小于画面大小5%;识别距离小于15m最佳（200万@6mm）;建议检测频率：不低于1次/5秒
+group_name: 险情防控
+model:
+  zql_extinguisher:
+    label:
+      class2label:
+        0: extinguisher
+      label_map:
+        extinguisher: 灭火器
+      label2color:
+        灭火器: [ 0, 255, 0 ]
+alert_label: [ ]
+process_time: 10
+version: ks988-v6.0
