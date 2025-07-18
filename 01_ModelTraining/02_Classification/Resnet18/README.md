@@ -6,7 +6,7 @@
 
       ```bash
       git clone https://github.com/AIDrive-Research/Custom-Algorithm.git
-      cd Custom-Algorithm/01_ModelTraining/01_Detection/Yolov5
+      cd Custom-Algorithm/01_ModelTraining/02_Classification/Resnet18
       pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/
       ```
 
@@ -64,7 +64,7 @@ python split_train_test.py
 python train.py
 ```
 
-**模型导出**
+## 模型导出
 
 将`convert_onnx.py`中的`input_path`，`output_path`分别修改为自己的模型权重路径，`onnx`文件导出路径。执行如下代码。
 
@@ -72,7 +72,7 @@ python train.py
 python convert_onnx.py
 ```
 
-**模型量化**  
+## 模型量化
 **注意**：该操作适用于KS968产品，KS988无需执行。
 
 1. 在训练集中随机选取图片进行模型量化，精度校准，数量在80-120之间，目录结构如下：

@@ -2,12 +2,12 @@
 
 # Custom Algorithm
 
-## 简介
+## 📑简介
 
 本仓库为开发者和工程师提供一套完整的自定义算法包开发与部署的解决方案。通过本教程，您可以深入了解从数据准备、模型训练、到模型转换与量化，再到自定义算法包的制作与部署的每一个步骤。特别适用于需要在智驱力晓知精灵设备上部署自定义算法的用户。  
 - 支持晓知精灵KS968、KS988产品。    
 
-## 自定义算法包流程图
+## 📦自定义算法包流程图
 ![](docs/assets/custom_algorithm_flowchart.png)
 
 自定义算法包包含两个过程：
@@ -66,9 +66,9 @@
     - 调试与日志：在 02_CustomAlgorithm/DebugAndLogs 目录下，查阅调试方法和日志查看指南，帮助您快速定位部署中的问题。
   
   
-# 联系方式
-- 官网：https://www.aidrive-tech.com
-- 邮箱：support@aidrive-tech.com
+# 📬 联系方式
+- 🌐 官网：https://www.aidrive-tech.com
+- 📧 邮箱：support@aidrive-tech.com
 
 # License
 [Apache License 2.0](LICENSE)

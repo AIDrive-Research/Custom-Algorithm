@@ -1,9 +1,10 @@
+# PaddleOCR
+
 ## 环境安装
 1. Clone repo and install [requirements.txt](https://github.com/AIDrive-Research/EdgeAI-Toolkit/blob/main/train/ocr/paddleocr/requirements.txt) in a python=3.8.0 environment, including pytorch>=1.8 推荐使用Conda虚拟环境。
-
-2. ```bash
-    git clone https://github.com/AIDrive-Research/EdgeAI-Toolkit.git
-    cd EdgeAI-Toolkit/train/ocr/paddleocr
+   ```bash
+    git clone https://github.com/AIDrive-Research/Custom-Algorithm.git
+    cd Custom-Algorithm/01_ModelTraining/04_OCR/PaddleOCR
     pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/
    ```
 
@@ -96,80 +97,75 @@ Det训练：
 
 * 参考：[https://github.com/PaddlePaddle/PaddleOCR/blob/main/docs/ppocr/model\_train/detection.md](https://github.com/PaddlePaddle/PaddleOCR/blob/main/docs/ppocr/model_train/detection.md)
 
-```Plain Text
-python3 -m paddle.distributed.launch --gpus '2' tools/train.py -c configs/det/ch_PP-OCRv4/ch_PP-OCRv4_det_student.yml -o Global.pretrained_model=./pretrained_model/ch_PP-OCRv4_det_train/best_accuracy.pdparams
-```
+   ```bash
+   python3 -m paddle.distributed.launch --gpus '2' tools/train.py -c configs/det/ch_PP-OCRv4/ch_PP-OCRv4_det_student.yml -o Global.pretrained_model=./pretrained_model/ch_PP-OCRv4_det_train/best_accuracy.pdparams
+   ```
 
 Rec训练：
 
 * 参考：[https://github.com/PaddlePaddle/PaddleOCR/blob/main/docs/ppocr/model\_train/recognition.md](https://github.com/PaddlePaddle/PaddleOCR/blob/main/docs/ppocr/model_train/recognition.md)
 
-```bash
-python3 -m paddle.distributed.launch --gpus '3'  tools/train.py -c ./configs/rec/PP-OCRv4/ch_PP-OCRv4_rec.yml -o Global.pretrained_model=./pretrained_model/ch_PP-OCRv4_rec_train/student.pdparams
-```
+   ```bash
+   python3 -m paddle.distributed.launch --gpus '3'  tools/train.py -c ./configs/rec/PP-OCRv4/ch_PP-OCRv4_rec.yml -o Global.pretrained_model=./pretrained_model/ch_PP-OCRv4_rec_train/student.pdparams
+   ```
 
 
-## 导出ONNX
+## 模型导出
 
-检测模型转inference 模型方式：
+1. ONNX导出
 
-```bash
-python3 tools/export_model.py -c configs/det/ch_PP-OCRv4/ch_PP-OCRv4_det_student.yml -o Global.pretrained_model="./output/yibiao_ocr/det/best_model/model" Global.save_inference_dir="./output/yibiao_ocr/det/det_inference/"
-```
+** 检测 **
 
-DB检测模型inference 模型预测：
+- PaddleOCR 检测模型转 Inference 模型：
 
-```bash
-python3 tools/infer/predict_det.py --det_algorithm="DB" --det_model_dir="./output/yibiao_ocr/det/det_inference/" --image_dir="./images/" --use_gpu=True
-```
+   ```bash
+   python3 tools/export_model.py -c configs/det/ch_PP-OCRv4/ch_PP-OCRv4_det_student.yml -o Global.pretrained_model="./output/yibiao_ocr/det/best_model/model" Global.save_inference_dir="./output/yibiao_ocr/det/det_inference/"
+   ```
 
-Det模型转onnx：
+- Inference 模型转 ONNX：
 
-```Plain Text
-paddle2onnx --model_dir ./output/yibiao_ocr/det/det_inference --model_filename inference.pdmodel --params_filename inference.pdiparams --save_file ./output/yibiao_ocr/det/det_inference/yibiao_det.onnx --opset_version 12 --enable_dev_version True --enable_onnx_checker True
-```
-```Plain Text
-python -m paddle2onnx.optimize --input_model ./output/yibiao_ocr/det/det_inference/yibiao_det.onnx --output_model ./output/yibiao_ocr/det/det_inference/yibiao_det_op.onnx --input_shape_dict "{'x':[1,3,640,640]}"
-```
+   ```bash
+   paddle2onnx --model_dir ./output/yibiao_ocr/det/det_inference --model_filename inference.pdmodel --params_filename inference.pdiparams --save_file ./output/yibiao_ocr/det/det_inference/yibiao_det.onnx --opset_version 12 --enable_dev_version True --enable_onnx_checker True
+   ```
+   ```bash
+   python -m paddle2onnx.optimize --input_model ./output/yibiao_ocr/det/det_inference/yibiao_det.onnx --output_model ./output/yibiao_ocr/det/det_inference/yibiao_det_op.onnx --input_shape_dict "{'x':[1,3,640,640]}"
+   ```
 
 
-识别模型转inference模型方式：
+** 识别 **
 
-```bash
-python3 tools/export_model.py -c ./configs/rec/PP-OCRv4/ch_PP-OCRv4_rec.yml -o Global.pretrained_model="./output/yibiao_ocr/rec/best_model/model" Global.save_inference_dir="./output/yibiao_ocr/rec/rec_inference/"
-```
+- PaddleOCR 识别模型转 Inference 模型：
 
-识别模型inference 模型预测：
+   ```bash
+   python3 tools/export_model.py -c ./configs/rec/PP-OCRv4/ch_PP-OCRv4_rec.yml -o Global.pretrained_model="./output/yibiao_ocr/rec/best_model/model" Global.save_inference_dir="./output/yibiao_ocr/rec/rec_inference/"
+   ```
 
-```bash
-python3 tools/infer/predict_rec.py --rec_model_dir="./output/yibiao_ocr/rec/rec_inference/" --image_dir="./images/" --rec_image_shape="3, 48, 320" --rec_char_dict_path="ppocr/utils/ppocr_keys_v1.txt" --use_gpu=True
-```
+- Inference 模型转 ONNX：
 
-Rec模型转onnx：
+   ```bash
+   paddle2onnx --model_dir ./output/yibiao_ocr/rec/rec_inference --model_filename inference.pdmodel --params_filename inference.pdiparams --save_file ./output/yibiao_ocr/rec/rec_inference/yibiao_rec.onnx --opset_version 12 --enable_dev_version True
+   ```
+   ```bash
+   python -m paddle2onnx.optimize --input_model ./output/yibiao_ocr/rec/rec_inference/yibiao_rec.onnx --output_model ./output/yibiao_ocr/rec/rec_inference/yibiao_rec_op.onnx --input_shape_dict "{'x':[1,3,48,320]}"
+   ```
 
-```Plain Text
-paddle2onnx --model_dir ./output/yibiao_ocr/rec/rec_inference --model_filename inference.pdmodel --params_filename inference.pdiparams --save_file ./output/yibiao_ocr/rec/rec_inference/yibiao_rec.onnx --opset_version 12 --enable_dev_version True
-```
-```Plain Text
-python -m paddle2onnx.optimize --input_model ./output/yibiao_ocr/rec/rec_inference/yibiao_rec.onnx --output_model ./output/yibiao_ocr/rec/rec_inference/yibiao_rec_op.onnx --input_shape_dict "{'x':[1,3,48,320]}"
-```
+## 模型转换
+**注意**：该操作适用于KS968产品，KS988无需执行。
 
-## 导出RKNN
+- 检测模型转RKNN：
 
-检测模型转RKNN：
+   ```bash 
+   cd convert_rknn/det
+   python convert.py <onnx_model> <TARGET_PLATFORM> <dtype(optional)> <output_rknn_path(optional)>
+   # 例如: python convert.py ../model/ppocrv4_det.onnx rk3588
+   # 输出文件保存为: ../model/ppocrv4_det.rknn
+   ```
 
-```bash 
-cd convert_rknn/det
-python convert.py <onnx_model> <TARGET_PLATFORM> <dtype(optional)> <output_rknn_path(optional)>
-# 例如: python convert.py ../model/ppocrv4_det.onnx rk3588
-# 输出文件保存为: ../model/ppocrv4_det.rknn
-```
+- 识别模型转RKNN：
 
-识别模型转RKNN：
-
-```
-cd convert_rknn/rec
-python convert.py <onnx_model> <TARGET_PLATFORM> <dtype(optional)> <output_rknn_path(optional)>
-# 例如: python convert.py ../model/ppocrv4_rec.onnx rk3588
-# 输出文件保存为: ../model/ppocrv4_rec.rknn
-```
+   ```
+   cd convert_rknn/rec
+   python convert.py <onnx_model> <TARGET_PLATFORM> <dtype(optional)> <output_rknn_path(optional)>
+   # 例如: python convert.py ../model/ppocrv4_rec.onnx rk3588
+   # 输出文件保存为: ../model/ppocrv4_rec.rknn
+   ```

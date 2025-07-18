@@ -1,45 +1,35 @@
-**环境安装**
+# Yolov8-pose
 
-
+## 环境安装
 1. Clone repo and install [requirements.txt](requirements.txt) in a python>=3.8.0, including pytorch>=1.8
-
-2. ```
+   ```
    git clone https://github.com/AIDrive-Research/EdgeAI-Toolkit.git
    cd EdgeAI-Toolkit/train/pose/yolov8-pose
    pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/
    ```
 
-**数据准备**
+## 模型导出
 
-   1. 数据集目录结构如下：
+1. ONNX导出
 
-      ```bash
-      images:
-       	train
-       		xxx.jpg
-       	val
-       		xxx.jpg
-       labels:
-       	train
-       		xxx.txt
-       	val
-       		xxx.txt	
-      ```
+   ```bash
+   yolo mode=export model=yolov8n-pose.pt format=onnx opset=12 simplify=True
+   ```
 
-**模型训练**
+## 模型转换
+**注意**：该操作适用于KS968产品，KS988无需执行。
 
-```python
-from ultralytics.models.yolo.pose import PoseTrainer
+1. 模型转换
 
-args = dict(model="yolov8s-pose.pt", data="coco8-pose.yaml", epochs=300)
-trainer = PoseTrainer(overrides=args)
-trainer.train()
-```
+   运行：
 
-**模型导出**
+   ```
+    python convert.py onnx_model_path platform fp output_rknn_path
+   ```
 
-1. ONNX_RKNN导出，这里我们支持RK有NPU能力的全系列，包括RK1808、RV1109、RV1126、RK3399PRO、RK3566、RK3568、RK3588、RK3588S、RV1106、RV1103
+   其中：
 
-```bash
-yolo mode=export model=yolov8n-pose.pt format=onnx opset=12 simplify=True
-```
+   - onnx_model_path：训练后导出的onnx模型文件位置
+   - platform：[rk3568,rk3588]
+   - fp：fp代表不量化
+   - output_rknn_path：转换后模型的保存路径
